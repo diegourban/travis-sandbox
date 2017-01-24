@@ -10,8 +10,9 @@ public class SampleLoader {
     private static final String RESOURCES_PATH = "src" + File.separator + "main" + File.separator + "resources";
 
     public String loadAsString(String fileName) throws IOException {
-        String filePath = RESOURCES_PATH + File.separator + fileName;
-        Path path = Paths.get(new File(filePath).getAbsolutePath());
-        return new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+        String samplePath = RESOURCES_PATH + File.separator + fileName;
+        Path inputPath = Paths.get(new File(samplePath).getAbsolutePath());
+        byte[] inputBytes = Files.readAllBytes(inputPath);
+        return new String(inputBytes, StandardCharsets.UTF_8);
     }
 }
