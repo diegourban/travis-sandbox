@@ -34,4 +34,21 @@ public class SampleLoaderTest {
 
         assertEquals(expectedContent, content);
     }
+
+    @Test
+    public void shouldLoadLowestInputFileContentAsString() throws IOException {
+        StringBuilder sb = new StringBuilder()
+                .append("132")
+                .append(System.lineSeparator())
+                .append("323")
+                .append(System.lineSeparator())
+                .append("231")
+                .append(System.lineSeparator());
+        String expectedContent = sb.toString();
+
+        SampleLoader sl = new SampleLoader();
+        String content = sl.loadAsString("lowestInput.out");
+
+        assertEquals(expectedContent, content);
+    }
 }
